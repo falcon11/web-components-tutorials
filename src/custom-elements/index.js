@@ -1,15 +1,3 @@
-class WordCount extends HTMLParagraphElement {
-  constructor() {
-    super();
-  }
-
-  connectedCallback() {
-    console.log('connected');
-  }
-}
-
-customElements.define('word-count', WordCount, { extends: 'p' });
-
 class PopUpInfo extends HTMLElement {
   constructor() {
     super();
@@ -73,6 +61,23 @@ class PopUpInfo extends HTMLElement {
     wrapper.appendChild(icon);
     wrapper.appendChild(info);
   }
+
+  connectedCallback() {
+    console.log('popup-info element added to page.');
+  }
+
+  disconnectedCallback() {
+    console.log('popup-info element removed from page.');
+  }
+
+  adoptedCallback() {
+    console.log('popup-info element moved to new page.');
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    console.log('popup-info element attributes changed.');
+    console.log('name', name, 'old value', oldValue, 'new value', newValue);
+  }
 }
 
-customElements.define('popup-info', PopUpInfo)
+customElements.define('popup-info', PopUpInfo);
